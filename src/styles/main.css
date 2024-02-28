@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../images/vulcan.jpg");
+    background-size: cover;
+    background-position: center;  
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #000000;
+    color: #ffd700;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.results {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* os itens flex que não couberem na mesma linha serão movidos para a próxima linha */
+    flex-wrap: wrap;
+    gap: 10px;
+    /* permite deixar os filhos da classe .game serem renderizados como 3d */
+    transform-style: preserve-3d;
+    /* adicione uma profundidade a div, criando uma perspectiva*/
+    perspective: 500px;
+    background-image: url("../images/board.jpg");
+    background-size: cover;
+    background-position: center;
+    border: #000000 solid 3px;
+}
+
+.replay {
+    background-color: #ff4500;
+    color: #ffffff;
+    padding: 10px 20px;
+    width: 70%;
+    cursor: pointer;
+    border: #ff0000 solid 2px;
+    font-size: 1.5em;
+}
+
+.square {
+    /* possibilita mover o objeto em relação a própria posição original */
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/score.png");
+    background-size: cover;
+    font-size: 3em;
+    /* como a div pai torna os elementos filhos em 3d, é possível rotacionar o item como se fosse 3d */
+    transform: rotateY(180deg);
+    /* adiciona um tempo de uma transição a outra */
+    transition: 0.25s;
+    border: #411606 solid 3px;
+}
+
+.bomb {
+    background-image: url("../images/bomb.png");
+    background-size: cover;
+}
+
+.square::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/tile.png");
+    background-size: cover;
+    transition: 0.25s;        
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.selected {
+    transform: rotateY(0deg);
+    border: #adff2f solid 2px ;
+}
+
+.selected::after {
+    transform: rotateY(180deg);
+}

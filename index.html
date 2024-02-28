@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Field</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="icon" href="./src/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <audio id="bgm" loop autoplay>
+        <source src="./src/music/music.mp3" type="audio/mp3"/>
+    </audio>
+    <div class="container">
+        <header>
+            <div class="title">
+                <h1>Mine Field</h1>
+            </div>            
+            <div class="results">
+                    <h3>Bombs: 3</h3>
+                    <h3 class="score">Score: 0</h3>
+                <div class="time">
+                    <h3>Time:
+                        <span class = "minutes">00</span>
+                        :
+                        <span class="seconds">00</span>
+                    </h3>
+                </div>
+            </div>
+        </header>
+        
+        <div class="game"></div>
+        <button class="replay" ">REPLAY</button>
+    </div>
+    <script src="./src/script/main.js" defer></script>
+</body>
+</html>
