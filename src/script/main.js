@@ -91,34 +91,18 @@ function startTime() {
 }
 
 function bestResults() {
-    if(game.values.bestScore <= game.values.score){
-        if(game.values.bestMinutes <= game.values.minutes) {
-            if(game.values.bestSeconds < game.values.seconds) {
-                game.values.bestScore = game.values.score;
-                if(game.values.seconds < 10) {
-                    game.values.bestSeconds = `0${game.values.seconds}`;
-                } else {
-                    game.values.bestSeconds = game.values.seconds;
-                }
+    game.values.bestScore = game.values.bestScore <= game.values.score
+        ? game.values.score
+        : game.values.bestScore;
 
-                if(game.values.minutes < 10) {
-                    game.values.bestMinutes = `0${game.values.minutes}`;
-                } else {
-                    game.values.bestMinutes = game.values.minutes;
-                }                
-            } else {
-                game.values.bestScore = game.values.score;
-            if(game.values.minutes < 10) {
-                game.values.bestMinutes = `0${game.values.minutes}`;
-            } else {
-                game.values.bestMinutes = game.values.minutes;
-            }                
-            game.values.bestSeconds = game.values.seconds;
-            }
-        } else {
-            game.values.bestScore = game.values.score
-        }
-    }
+    game.values.bestMinutes = game.values.bestMinutes <= game.values.minutes
+        ? game.values.minutes < 10 ? `0${game.values.minutes}` : game.values.minutes
+        : game.values.bestMinutes;
+
+    game.values.bestSeconds = game.values.bestSeconds < game.values.seconds
+        ? game.values.seconds < 10 ? `0${game.values.seconds}` : game.values.seconds
+        : game.values.bestSeconds;
+
     return `Best score is ${game.values.bestScore} in ${game.values.bestMinutes} minutes and ${game.values.bestSeconds} seconds.`;
 }
 
